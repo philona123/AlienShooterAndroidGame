@@ -1,2 +1,2 @@
 # Alien Shooter Android Game
-Multimedia Mini Project for Semester 6 Curriculum
+Multimedia Mini Project for 6th semester Curriculum
