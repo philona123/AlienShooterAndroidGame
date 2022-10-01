@@ -1,24 +1,18 @@
-package com.example.alienshooter;
+package com.example.alienshooter
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.view.View;
+import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
-public class StartUp extends AppCompatActivity {
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.startup);
+class StartUp : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.startup)
     }
 
-    public void startGame(View view) {
-        startActivity(new Intent(this, MainActivity.class));
-
-        finish();
+    fun startGame(view: View?) {
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
     }
-
 }

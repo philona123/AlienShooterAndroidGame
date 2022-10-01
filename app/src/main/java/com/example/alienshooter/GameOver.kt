@@ -1,35 +1,28 @@
-package com.example.alienshooter;
+package com.example.alienshooter
 
-import android.content.Intent;
-import android.media.MediaPlayer;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
+import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
-public class GameOver extends AppCompatActivity {
-
-    TextView tvPoints;
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.game_over);
-        int points = getIntent().getExtras().getInt("points");
-        tvPoints = findViewById(R.id.tvPoints);
-        tvPoints.setText("" + points);
-
+class GameOver : AppCompatActivity() {
+    var tvPoints: TextView? = null
+    public override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.game_over)
+        val points = intent.extras!!.getInt("points")
+        tvPoints = findViewById(R.id.tvPoints)
+        tvPoints?.text = "" + points
     }
 
-    public void restart(View view) {
-        Intent intent = new Intent(GameOver.this, StartUp.class);
-        startActivity(intent);
-        finish();
+    fun restart(view: View?) {
+        val intent = Intent(this@GameOver, StartUp::class.java)
+        startActivity(intent)
+        finish()
     }
 
-    public void exit(View view) {
-        finish();
+    fun exit(view: View?) {
+        finish()
     }
 }

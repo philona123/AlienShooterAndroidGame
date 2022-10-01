@@ -1,30 +1,23 @@
-package com.example.alienshooter;
+package com.example.alienshooter
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import java.util.*
 
-import java.util.Random;
+class OurSpaceship(var context: Context) {
+    var ourSpaceship: Bitmap
+    var ox: Int
+    var oy: Int
+    var random: Random
 
-public class OurSpaceship {
-    Context context;
-    Bitmap ourSpaceship;
-    int ox, oy;
-    Random random;
-
-    public OurSpaceship(Context context){
-        this.context = context;
-        ourSpaceship = BitmapFactory.decodeResource(context.getResources(), R.drawable.rocket1);
-        random = new Random();
-        ox = random.nextInt(AlienShooter.screenWidth);
-        oy = AlienShooter.screenHeight - ourSpaceship.getHeight();
+    init {
+        ourSpaceship = BitmapFactory.decodeResource(context.resources, R.drawable.rocket1)
+        random = Random()
+        ox = random.nextInt(AlienShooter.screenWidth)
+        oy = AlienShooter.screenHeight - ourSpaceship.height
     }
 
-    public Bitmap getOurSpaceship(){
-        return ourSpaceship;
-    }
-
-    int getOurSpaceshipWidth(){
-        return ourSpaceship.getWidth();
-    }
+    val ourSpaceshipWidth: Int
+        get() = ourSpaceship.width
 }

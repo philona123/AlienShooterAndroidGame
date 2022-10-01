@@ -1,38 +1,28 @@
-package com.example.alienshooter;
+package com.example.alienshooter
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.media.MediaPlayer
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 
-import android.media.MediaPlayer;
-import android.os.Bundle;
-
-public class MainActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(new AlienShooter(this));
-        MediaPlayer music = MediaPlayer.create(MainActivity.this, R.raw.music);
-        music.setLooping(true);
-        music.setVolume(100,100);
-        music.start();
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(AlienShooter(this))
+        val music = MediaPlayer.create(this@MainActivity, R.raw.music)
+        music.isLooping = true
+        music.setVolume(100f, 100f)
+        music.start()
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        MediaPlayer music = MediaPlayer.create(MainActivity.this, R.raw.music);
-//        music.setLooping(true);
-        music.setVolume(100,100);
-        music.start();
+    override fun onDestroy() {
+        super.onDestroy()
+        val music = MediaPlayer.create(this@MainActivity, R.raw.music)
+        //        music.setLooping(true);
+        music.setVolume(100f, 100f)
+        music.start()
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-
+    override fun onPause() {
+        super.onPause()
     }
-
-
-
-
 }
